@@ -1,0 +1,70 @@
+---
+title: "Git Notes again"
+format: html
+---
+
+## Gasics of using git
+
+Git is a distributed version control system (VCS) that is very popular. 
+
+
+The core steps to using gt involve 
+
+1. Initiate a git repository
+     In R studio we just click a little radio button on project creation 
+     At the command line we type: 
+     `git init`
+     
+2. Do your normal work
+    Add files
+    modify files etc.
+    
+3. Add your important files to the "stage"
+    In RStudio we click "staged" radio button
+    `git add yourfilename`
+
+4. Commit your staged files to the repository
+    Inn RStudio you just hit the "Commit" button and add a msg
+    `git commit -m "your wee msg"`
+    
+    
+5. Git push to sync changes to GitHub
+  The Up arrow in RStudio
+  `git push`
+  
+6. Git Pull to sync FROM GitHub
+    The down arrow in RStudio
+    `git pull`
+
+You can check your project "history" and status    
+    
+    `git status`
+    `git log` (Push Q to exit)
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this 
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
