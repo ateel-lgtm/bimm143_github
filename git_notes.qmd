@@ -3,7 +3,7 @@ title: "Git Notes again"
 format: html
 ---
 
-## Gasics of using git
+## Basics of using git
 
 Git is a distributed version control system (VCS) that is very popular. 
 
