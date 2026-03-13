@@ -52,16 +52,16 @@ km
 
     Cluster means:
               x         y
-    1  3.062573 -3.217670
-    2 -3.217670  3.062573
+    1  2.959521 -2.740225
+    2 -2.740225  2.959521
 
     Clustering vector:
      [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
     [39] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 
     Within cluster sum of squares by cluster:
-    [1] 50.17339 50.17339
-     (between_SS / total_SS =  92.2 %)
+    [1] 57.68005 57.68005
+     (between_SS / total_SS =  89.4 %)
 
     Available components:
 
@@ -83,8 +83,8 @@ km$centers
 ```
 
               x         y
-    1  3.062573 -3.217670
-    2 -3.217670  3.062573
+    1  2.959521 -2.740225
+    2 -2.740225  2.959521
 
 > Q. What component of the results object details the cluster membership
 > vector (i.e. our main result of which points lie in which cluster)?
@@ -114,22 +114,22 @@ k4 <- kmeans(x,centers=4)
 k4
 ```
 
-    K-means clustering with 4 clusters of sizes 10, 8, 12, 30
+    K-means clustering with 4 clusters of sizes 10, 10, 10, 30
 
     Cluster means:
               x         y
-    1  2.660293 -4.006380
-    2  2.623892 -1.851606
-    3  3.690260 -3.471121
-    4 -3.217670  3.062573
+    1 -3.485474  2.193877
+    2 -3.174793  3.987745
+    3 -1.560409  2.696941
+    4  2.959521 -2.740225
 
     Clustering vector:
-     [1] 3 2 2 2 1 3 3 2 1 3 3 1 3 1 3 2 1 3 1 3 1 3 2 2 2 3 1 1 1 3 4 4 4 4 4 4 4 4
-    [39] 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+     [1] 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 3 2 1 2 1 3 1 2
+    [39] 2 3 3 1 2 1 3 2 2 1 1 1 2 3 3 3 3 3 1 2 1 2
 
     Within cluster sum of squares by cluster:
-    [1]  8.586036  6.348092  5.433006 50.173385
-     (between_SS / total_SS =  94.5 %)
+    [1]  6.536593  4.685416  7.971890 57.680047
+     (between_SS / total_SS =  92.9 %)
 
     Available components:
 
@@ -149,13 +149,13 @@ The metric
 km$tot.withinss
 ```
 
-    [1] 100.3468
+    [1] 115.3601
 
 ``` r
 k4$tot.withinss
 ```
 
-    [1] 70.54052
+    [1] 76.87395
 
 > Q. Let’s try different number of K (centers) from 1 to 30 and see what
 > the best result is?

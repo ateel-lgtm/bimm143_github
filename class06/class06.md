@@ -102,7 +102,7 @@ need sample amounts and size, the rest is optional.
 sample(1:10,size=4)
 ```
 
-    [1] 7 6 9 5
+    [1] 6 5 9 8
 
 > Q. Return 12 numbers picked randomly from the input 1:10
 
@@ -110,7 +110,7 @@ sample(1:10,size=4)
 sample(1:10,size=12, replace=TRUE)
 ```
 
-     [1]  7  5  2  7  9 10  9  5 10  3 10  7
+     [1] 6 8 4 7 9 4 5 8 3 1 2 7
 
 > Q. Write the code to generate a random 12 nucleotide long DNA
 > sequence.
@@ -120,7 +120,7 @@ bases <- c("A","C","G","T")
 sample(bases, size=12, replace=TRUE)
 ```
 
-     [1] "G" "T" "A" "T" "A" "A" "T" "A" "A" "C" "G" "G"
+     [1] "A" "G" "C" "G" "C" "C" "T" "C" "C" "T" "C" "G"
 
 > Q. Write a first version function called `Generate_dna()` that
 > generates a user specified length `n` random DNA sequence?
@@ -141,12 +141,12 @@ generate_dna <- function(n=6) {
 generate_dna(100)
 ```
 
-      [1] "T" "G" "T" "C" "T" "T" "G" "C" "T" "G" "A" "T" "A" "A" "T" "T" "G" "A"
-     [19] "C" "A" "A" "T" "A" "G" "A" "G" "T" "A" "G" "C" "T" "C" "C" "G" "T" "C"
-     [37] "C" "T" "A" "T" "A" "T" "G" "C" "G" "G" "C" "G" "C" "G" "A" "T" "G" "C"
-     [55] "A" "G" "A" "C" "C" "C" "T" "G" "A" "T" "C" "G" "G" "G" "C" "A" "T" "T"
-     [73] "C" "C" "C" "C" "T" "C" "T" "G" "C" "C" "C" "G" "C" "G" "G" "G" "T" "T"
-     [91] "G" "A" "T" "A" "C" "C" "C" "T" "C" "A"
+      [1] "G" "A" "C" "C" "G" "T" "C" "A" "C" "G" "C" "A" "A" "T" "C" "C" "C" "C"
+     [19] "T" "A" "T" "A" "T" "T" "C" "T" "A" "A" "A" "T" "A" "T" "A" "T" "C" "A"
+     [37] "A" "T" "A" "C" "G" "G" "C" "C" "G" "T" "A" "T" "G" "A" "T" "G" "C" "C"
+     [55] "T" "A" "A" "G" "T" "C" "A" "C" "G" "G" "T" "G" "A" "G" "T" "A" "T" "T"
+     [73] "T" "A" "G" "C" "A" "T" "A" "G" "T" "A" "C" "G" "C" "A" "T" "T" "G" "C"
+     [91] "C" "C" "G" "A" "G" "T" "C" "G" "G" "C"
 
 > Q. Modify you function ot return a FASTA like sequence so rather than
 > \[1\] “T” “A” “G” “T” “C” “G” “C” we want “TAGTCGC”
@@ -161,7 +161,7 @@ generate_dna <- function(n=6) {
 generate_dna(100)
 ```
 
-    [1] "TATTGGGCCCCGCCATCGGGTCATTAGTTCAATTCGGGCCTACAAGCTCGCAAAACCACAATAAACATGCCGATCCTCTTAAGAACATGAAAGAGTTTTT"
+    [1] "GGTTGACTCTTATCTAAGCATCTAAAGTCCTCTCAGAAGCGGATCAACTGTCACCTCGCGACTGCGCTTTTGGTGATGCACCTACTTCGCTCAAGTTTGA"
 
 > Q. Give the user an option to return FASTA format output sequence or
 > standard multi-element vector format?
@@ -181,14 +181,14 @@ return(ans)
 generate_dna(20)
 ```
 
-    [1] "CCAACAACCATGAAGACTGT"
+    [1] "CTCATGCCGTTGAATTGCGA"
 
 ``` r
 generate_dna(20,FALSE)
 ```
 
-     [1] "T" "C" "C" "T" "C" "T" "A" "T" "G" "A" "G" "A" "A" "G" "A" "T" "T" "A" "T"
-    [20] "T"
+     [1] "C" "C" "T" "T" "G" "G" "C" "T" "C" "G" "T" "T" "T" "A" "A" "T" "T" "C" "G"
+    [20] "A"
 
 \##A new cool function
 
@@ -212,7 +212,7 @@ return(paste(aas,collapse = ""))
 generate_protein(10)
 ```
 
-    [1] "QTCCYPIGIQ"
+    [1] "APNNAHIMFD"
 
 > Q. Use your new `generate_protein()` function to generate sequences
 > between length 6 and 12 amino acids in length and check if any of
@@ -235,43 +235,43 @@ return(paste(aas,collapse = ""))
 generate_protein(6)
 ```
 
-    [1] "YPEKDM"
+    [1] "TDTMEA"
 
 ``` r
 generate_protein(7)
 ```
 
-    [1] "STINISD"
+    [1] "KRPMYIP"
 
 ``` r
 generate_protein(8)
 ```
 
-    [1] "KANHQWKI"
+    [1] "FIFKMIAA"
 
 ``` r
 generate_protein(9)
 ```
 
-    [1] "GYSVAMSVG"
+    [1] "KYFDGTFAK"
 
 ``` r
 generate_protein(10)
 ```
 
-    [1] "CARDVDSTKT"
+    [1] "TQAFKFDATG"
 
 ``` r
 generate_protein(11)
 ```
 
-    [1] "HWPNERWYEDI"
+    [1] "RKLTTQWFEAC"
 
 ``` r
 generate_protein(12)
 ```
 
-    [1] "HYGKNKSNNCRV"
+    [1] "TRRTPWVLSDHL"
 
 Or we could do a `for()` loop:
 
@@ -283,16 +283,16 @@ for(i in 6:12){
 ```
 
     >6
-    KPLHKE 
+    FNVQCE 
     >7
-    SIQIMSQ 
+    ETYAEVP 
     >8
-    RGIDFGSL 
+    WTIWPNKP 
     >9
-    MDKNAHENC 
+    TQVIRMRNW 
     >10
-    WWTSLANPYL 
+    SMQFHCGPTG 
     >11
-    MWCIDVENCPV 
+    DTVQKRCGMSP 
     >12
-    HVTPNKQDMFAS 
+    NTECYDKGELFA 

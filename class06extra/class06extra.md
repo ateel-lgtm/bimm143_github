@@ -80,7 +80,7 @@ b1 <- process_and_plot("4AKE")
       Note: Accessing on-line PDB file
 
     Warning in get.pdb(file, path = tempdir(), verbose = FALSE):
-    C:\Users\black\AppData\Local\Temp\RtmpI7cblM/4AKE.pdb exists. Skipping download
+    C:\Users\black\AppData\Local\Temp\RtmpcBXIHk/4AKE.pdb exists. Skipping download
 
 ![](class06extra_files/figure-commonmark/unnamed-chunk-3-1.png)
 
@@ -91,7 +91,7 @@ b2 <- process_and_plot("1AKE")
       Note: Accessing on-line PDB file
 
     Warning in get.pdb(file, path = tempdir(), verbose = FALSE):
-    C:\Users\black\AppData\Local\Temp\RtmpI7cblM/1AKE.pdb exists. Skipping download
+    C:\Users\black\AppData\Local\Temp\RtmpcBXIHk/1AKE.pdb exists. Skipping download
 
        PDB has ALT records, taking A only, rm.alt=TRUE
 
@@ -104,7 +104,7 @@ b3 <- process_and_plot("1E4Y")
       Note: Accessing on-line PDB file
 
     Warning in get.pdb(file, path = tempdir(), verbose = FALSE):
-    C:\Users\black\AppData\Local\Temp\RtmpI7cblM/1E4Y.pdb exists. Skipping download
+    C:\Users\black\AppData\Local\Temp\RtmpcBXIHk/1E4Y.pdb exists. Skipping download
 
 ![](class06extra_files/figure-commonmark/unnamed-chunk-3-3.png)
 
