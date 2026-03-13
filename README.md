@@ -27,8 +27,6 @@ Class 13 [class 13](class13/class13.md)
 
 Class 14 [class 14](class14/class14.md)
 
-Class 15 [class 15](class15/class15.md)
-
 Class 16 [class 16](class16/class16.md)
 
 Class 17 [class 17](class17/class17.md)
