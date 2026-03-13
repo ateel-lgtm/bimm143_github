@@ -89,9 +89,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#using-molstar" id="toc-using-molstar" class="nav-link" data-scroll-target="#using-molstar">Using Molstar</a></li>
   <li><a href="#introduction-to-bio3d-in-r" id="toc-introduction-to-bio3d-in-r" class="nav-link" data-scroll-target="#introduction-to-bio3d-in-r">Introduction to BIo3D in R</a></li>
   <li><a href="#prediction-of-protein-dynamics" id="toc-prediction-of-protein-dynamics" class="nav-link" data-scroll-target="#prediction-of-protein-dynamics">Prediction of protein dynamics</a></li>
-  <li><a href="#comparative-structure-analysis-of-adenylate-kinase" id="toc-comparative-structure-analysis-of-adenylate-kinase" class="nav-link" data-scroll-target="#comparative-structure-analysis-of-adenylate-kinase">Comparative structure analysis of Adenylate Kinase</a></li>
-  <li><a href="#optional-further-visualization" id="toc-optional-further-visualization" class="nav-link" data-scroll-target="#optional-further-visualization">Optional further visualization</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#comparative-protein-structure-analysis-with-rna" id="toc-comparative-protein-structure-analysis-with-rna" class="nav-link" data-scroll-target="#comparative-protein-structure-analysis-with-rna">Comparative protein structure analysis with RNA</a></li>
   </ul>
 </nav>
 </div>
@@ -340,7 +338,7 @@ Multiple.methods          Neutron            Other            Total
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">nma</span>(adk)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Building Hessian...        Done in 0.01 seconds.
+<pre><code> Building Hessian...        Done in 0.02 seconds.
  Diagonalizing Hessian...   Done in 0.16 seconds.</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -356,27 +354,65 @@ Multiple.methods          Neutron            Other            Total
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mktrj</span>(m, <span class="at">file=</span><span class="st">"results.pdb"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#view.nma(m)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="comparative-structure-analysis-of-adenylate-kinase" class="level2">
-<h2 class="anchored" data-anchor-id="comparative-structure-analysis-of-adenylate-kinase">Comparative structure analysis of Adenylate Kinase</h2>
-<blockquote class="blockquote">
-<p>Q10. Which of the packages above is found only on BioConductor and not CRAN?</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Q11. Which of the above packages is not found on BioConductor or CRAN?:</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Q12. True or False? Functions from the pak package can be used to install packages from GitHub and BitBucket?</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Q13. How many amino acids are in this sequence, i.e.&nbsp;how long is this sequence?</p>
-</blockquote>
-</section>
-<section id="optional-further-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="optional-further-visualization">Optional further visualization</h2>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<section id="comparative-protein-structure-analysis-with-rna" class="level2">
+<h2 class="anchored" data-anchor-id="comparative-protein-structure-analysis-with-rna">Comparative protein structure analysis with RNA</h2>
+<p>We will start with a database id 1ake_A</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bio3d)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="st">"1ake_A"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>aa <span class="ot">&lt;-</span> <span class="fu">get.seq</span>(id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in get.seq(id): Removing existing file: seqs.fasta</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Fetching... Please wait. Done.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#blast &lt;- blast.pdb(aa)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Have a wee peak:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#head(blast$hit.tbl)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#hits &lt;- plot(blast)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Peak at our “top hits”</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#head(hits$pdb.id)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can download these “top hits” these will all be ADK structures in the PDB database.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#files &lt;- get.pdb(hits$pdb.id, path="pdbs", split=TRUE, gzip=TRUE)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>we need one package from BioConductor. To set this up we first need to first install a package called <strong>“BiocManager”</strong> from CRAN.</p>
+<p>Now we can use the <code>install()</code> function from this package like this: <code>BiocManager::install("msa")</code></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pdbs &lt;- pdbaln(files, fit = TRUE, exefile="msa")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s have a wee peak at our structures after “fitting” or superposing:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(bio3dview)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co">#view.pdbs(pdbs, colorScheme="residue")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can run function like <code>rmsd()</code>,<code>rmsf()</code>, and the best <code>pca()</code></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pc.xray &lt;- pca(pdbs)</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(pc.xray)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(pc.xray, 1:2)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Finally, let’s make a wee movie of the major “motion” or structural difference in the dataset - we call this a “trajectory”</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#mktrj(pc.xray, file="results.pdb")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 
 </main>

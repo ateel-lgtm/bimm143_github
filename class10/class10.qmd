@@ -2,7 +2,7 @@
 title: "Class 10 Structural Bioinformatics"
 author: "Austin Teel (A17293709)"
 toc: TRUE
-format: pdf
+format: html
 ---
 
 ## Background 
@@ -164,27 +164,27 @@ aa <- get.seq(id)
 ```
 
 ```{r}
-blast <- blast.pdb(aa)
+#blast <- blast.pdb(aa)
 ```
 
 Have a wee peak:
 ```{r}
-head(blast$hit.tbl)
+#head(blast$hit.tbl)
 ```
 
 ```{r}
-hits <- plot(blast)
+#hits <- plot(blast)
 ```
 
 Peak at our "top hits"
 
 ```{r}
-head(hits$pdb.id)
+#head(hits$pdb.id)
 ```
 
 Now we can download these "top hits" these will all be ADK structures in the PDB database.
 ```{r}
-files <- get.pdb(hits$pdb.id, path="pdbs", split=TRUE, gzip=TRUE)
+#files <- get.pdb(hits$pdb.id, path="pdbs", split=TRUE, gzip=TRUE)
 ```
 
 
@@ -194,33 +194,33 @@ Now we can use the `install()` function from this package like this:
 `BiocManager::install("msa")`
 
 ```{r}
-pdbs <- pdbaln(files, fit = TRUE, exefile="msa")
+#pdbs <- pdbaln(files, fit = TRUE, exefile="msa")
 ```
 
 Let's have a wee peak at our structures after "fitting" or superposing:
 
 ```{r}
-library(bio3dview)
+#library(bio3dview)
 
-view.pdbs(pdbs, colorScheme="residue")
+#view.pdbs(pdbs, colorScheme="residue")
 ```
 
 
 We can run function like `rmsd()`,`rmsf()`, and the best `pca()`
 ```{r}
-pc.xray <- pca(pdbs)
-plot(pc.xray)
+#pc.xray <- pca(pdbs)
+#plot(pc.xray)
 ```
 
 ```{r}
-plot(pc.xray, 1:2)
+#plot(pc.xray, 1:2)
 ```
 
 
 Finally, let's make  a wee movie of the major "motion" or structural difference in the dataset - we call this a "trajectory"
 
 ```{r}
-mktrj(pc.xray, file="results.pdb")
+#mktrj(pc.xray, file="results.pdb")
 ```
 
 
