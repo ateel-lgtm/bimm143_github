@@ -1,0 +1,114 @@
+# class06extra
+Austin Teel (A17293709)
+
+## (B. Can you improve this analysis code?
+
+``` r
+library(bio3d)
+s1 <- read.pdb("4AKE") # kinase with drug
+```
+
+      Note: Accessing on-line PDB file
+
+``` r
+s2 <- read.pdb("1AKE") # kinase no drug
+```
+
+      Note: Accessing on-line PDB file
+       PDB has ALT records, taking A only, rm.alt=TRUE
+
+``` r
+s3 <- read.pdb("1E4Y") # kinase with drug
+```
+
+      Note: Accessing on-line PDB file
+
+``` r
+s1.chainA <- trim.pdb(s1, chain="A", elety="CA")
+s2.chainA <- trim.pdb(s2, chain="A", elety="CA")
+s3.chainA <- trim.pdb(s1, chain="A", elety="CA")
+s1.b <- s1.chainA$atom$b
+s2.b <- s2.chainA$atom$b
+s3.b <- s3.chainA$atom$b
+plotb3(s1.b, sse=s1.chainA, typ="l", ylab="Bfactor")
+```
+
+![](class06extra_files/figure-commonmark/unnamed-chunk-1-1.png)
+
+``` r
+plotb3(s2.b, sse=s2.chainA, typ="l", ylab="Bfactor")
+```
+
+![](class06extra_files/figure-commonmark/unnamed-chunk-1-2.png)
+
+``` r
+plotb3(s3.b, sse=s3.chainA, typ="l", ylab="Bfactor")
+```
+
+![](class06extra_files/figure-commonmark/unnamed-chunk-1-3.png)
+
+We must first normalize a function for the data in order to smoothly
+apply it to all of the values. This function will take the PDB id
+values. Then it will get a proetin structure from the pdb which it tehen
+can find the mapped points of the B-factor values. This then will give
+us the numeric vector of the B-factor values of the protein.
+
+``` r
+library(bio3d)
+#The input of the function is the pbd id values such as 4AKE,1AKE, and 1E4Y.
+process_and_plot <- function(pdb_id) {
+  pdb <- read.pdb(pdb_id)
+#The following code will allow the function to focus on the alpha-carbon atoms (CA).
+#Then it will also focus on the b-values.
+  chainA <- trim.pdb(pdb, chain = "A", elety = "CA")
+  bvals <- chainA$atom$b
+#The following piece of the function will graph the values along the sequence
+  plotb3(bvals, sse = chainA, typ = "l", ylab = paste("Bfactor:", pdb_id))
+#Then will return numeric vectors of the b-values.
+  return(bvals)
+}
+```
+
+Then we must apply the function above to the data. We can do this simply
+by calling the function that we wrote above and applying it to the
+values b1-b3.
+
+``` r
+b1 <- process_and_plot("4AKE")
+```
+
+      Note: Accessing on-line PDB file
+
+    Warning in get.pdb(file, path = tempdir(), verbose = FALSE):
+    C:\Users\black\AppData\Local\Temp\RtmpI7cblM/4AKE.pdb exists. Skipping download
+
+![](class06extra_files/figure-commonmark/unnamed-chunk-3-1.png)
+
+``` r
+b2 <- process_and_plot("1AKE")
+```
+
+      Note: Accessing on-line PDB file
+
+    Warning in get.pdb(file, path = tempdir(), verbose = FALSE):
+    C:\Users\black\AppData\Local\Temp\RtmpI7cblM/1AKE.pdb exists. Skipping download
+
+       PDB has ALT records, taking A only, rm.alt=TRUE
+
+![](class06extra_files/figure-commonmark/unnamed-chunk-3-2.png)
+
+``` r
+b3 <- process_and_plot("1E4Y")
+```
+
+      Note: Accessing on-line PDB file
+
+    Warning in get.pdb(file, path = tempdir(), verbose = FALSE):
+    C:\Users\black\AppData\Local\Temp\RtmpI7cblM/1E4Y.pdb exists. Skipping download
+
+![](class06extra_files/figure-commonmark/unnamed-chunk-3-3.png)
+
+We can see that the resulting graphs are comparable to the initial
+graphs and represent the same proteins based off of their structure
+based off of there pdb id. In this case we are just using a normalized
+function.
